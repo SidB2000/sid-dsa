@@ -10,4 +10,38 @@ class Solution {
         return ans;
     }
 }
+#1365
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int n = nums.length;
+        int[] count = new int[n];
+        int c = 0;
+        for(int i = 0;i<n;i++){
+            for(int j = 0;j<n;j++){
+                if (nums[j]<nums[i]){
+                    c+=1;
+                }
+            }
+            count[i] = c;
+            c = 0;
+        }
+        return count;
+    }
+}
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] answer= new int[nums.length];
+
+        for(int i=0;i<nums.length;i++){
+            for(int j=0;j<nums.length;j++){
+                if(nums[i]>nums[j]){
+                    answer[i]++;
+                }
+            }
+        }
+        return answer;
+        
+    }
+}
+
 
