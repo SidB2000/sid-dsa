@@ -55,3 +55,31 @@ class Solution {
         return (c<=1); //if dips are more than 1 array was not sorted initially   
     }
 }
+
+#1732
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int n = gain.length;
+        int[] alt = new int[n+1]; 
+        int max = 0;
+        alt[0] = 0;
+        for(int i = 0;i<n;i++) alt[i+1] = alt[i]+gain[i];        
+        for(int j = 0;j<(n+1);j++){
+            if(max<alt[j]) max = alt[j];
+        }
+        return max;
+    }
+}
+
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int n = gain.length;
+        int currentalt = 0; 
+        int maxalt = 0;
+        for(int i = 0;i<n;i++){ 
+            currentalt += gain[i];        
+            if(maxalt < currentalt) maxalt = currentalt;
+        }
+        return maxalt;
+        }
+}
