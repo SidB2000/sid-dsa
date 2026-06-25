@@ -152,3 +152,24 @@ class Solution {
         return false;
     }
 }
+#169
+class Solution {
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int count = 1;
+        int maxcount = -1;
+        int majel = 0;
+        if (n==1) return nums[0];
+
+        for(int i = 1;i<n;i++){
+            if (nums[i] == nums[i-1]) count++;
+            else count=1;
+            if (maxcount<count){ 
+                maxcount = count;
+                majel = nums[i];
+                }
+        }
+        return majel;
+    }
+}
